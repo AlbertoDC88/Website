@@ -1,0 +1,54 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %} 
+
+{% block title %}Flight Search{% endblock %}
+
+{% block content %}
+<h1>Flight Search</h1>
+{% if user.is_authenticated %}
+	Hi {{ user.username }}!, where would you like to fly today?
+<p></p>	
+
+<form action=" " method="POST">
+    <label for="Origin">From: </label>
+    <input id="Origin" type="text" name="Origin" >
+    <label for="Destination">To: </label>
+    <input id="Destination" type="text" name="Destination" >
+	<label for="Departure">Departure: </label>
+    <input id="Departure" type="text" name="Departure" >
+	<p></p>
+	{% csrf_token %}
+    <input type="submit" value="Search">
+	<p></p>	
+</form>
+
+<p>Search Results for flights from {{ Origin }} to {{ Destination }} the {{ Departure }} at a Total Price of {{ TotalPrice }}</p>
+<p></p>
+
+{% for flights in FlightMatrix %}
+	<li>
+		<td> Option {{ flights.Option }} </td>
+		<ul>
+			<li> Number of Flights: {{ flights.NFlight }} </li>
+				<li> {{ flights.DTime }} </li>
+				<li> {{ flights.DAirport }} </li>
+				<li> {{ flights.ATime }} </li>
+				<li> {{ flights.AAirport }} </li>
+				<li> {{ flights.DDate }} </li>
+			<li> {{ flights.RMap }} </li>
+			<li> {{ flights.TPrice }} </li>
+			<li> Total Flight Time: {{ flights.TFlightTime }} </li>
+		</ul>
+	</li>
+{% endfor %}
+
+<p></p>	
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Login</button>
+	</form>
+{% endif %}
+{% endblock %}
