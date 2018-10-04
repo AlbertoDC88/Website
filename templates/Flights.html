@@ -63,7 +63,7 @@
 	<label for="Departure">Departure: </label>
     <input id="Departure" type="text" name="Departure" >
 	<p></p>
-    <input type="submit" value="Search">
+    <input type="submit" name="Search" value="Search">
 	<p></p>	
 </form>
 
@@ -72,11 +72,11 @@
 	{% csrf_token %}
 	<div class="""slidecontainer">
 	<input type="range" min={{MinPrice}} max="100" value="{{MinPrice}}" class="slider2" id="MinRange">
-	<p>Min Price: <span id="Min_P"></span></p>
+	<p>Min Price: <span id="Min_P" name="Min_P"></span></p>
 	<input type="range" min="1" max={{MaxPrice}} value={{MaxPrice}} class="slider" id="MaxRange">
-	<p>Max Price: <span id="Max_P"></span></p>
+	<p>Max Price: <span id="Max_P" name="Max_P"></span></p>
 	</div>
-    <input type="submit" value="Filter">
+    <input type="submit" name="Filter" value="Filter">
 	<p></p>	
 </form>
 

@@ -30,7 +30,7 @@ def SearchEngine(request):
 	# defining the variable
 	if request.method == 'GET':
 		form = FlightSearchForm()
-	else:
+	elif request.method == 'POST' and "Search" in request.POST:
 		form = FlightSearchForm(request.POST)
 		if form.is_valid():
 			Origin = form.cleaned_data['Origin']
@@ -129,5 +129,35 @@ def SearchEngine(request):
 				'MaxPrice' : MaxPrice,
 				'MinPrice' : MinPrice,
 				})
+		return render(request, "Flights.html", {'form': form})
+				
+	elif request.method == 'POST' and "Filter" in request.POST:
+		form = FlightSearchForm(request.POST)
+		if form.is_valid():
+			MinRange = form.cleaned_data['Min_P']
+			MaxRange = form.cleaned_data['Max_P']
+			FlightMatrix = 'FlightMatrix'
+			
+			for Options in range(len(FlightMatrix)):
+				if FlightMatrix[Options]['TPrice']['EUR'] > MaxRange :
+					Repeats.append(Options)
+			Repeats.reverse()
+			for R in Repeats:
+				del FlightMatrix[R]
+			
+		
+			return render(request, 'Flights.html', {
+					'FlightMatrix' : FlightMatrix,
+					'MaxPrice' : MaxPrice,
+					'MinPrice' : MinPrice,
+					})
+				
+		return render(request, "Flights.html", {'form': form})
+		
+	else:
+		form = FlightSearchForm(request.POST)
+		print("Good Too")
+		return render(request, "Flights.html", {'form': form})
+	
 	return render(request, "Flights.html", {'form': form})
 
