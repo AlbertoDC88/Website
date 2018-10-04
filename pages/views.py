@@ -28,8 +28,6 @@ class HotelsEngineView(TemplateView):
 
 def SearchEngine(request):
 	# defining the variable
-	#number = 6
-	#origin = "Origin Airport"
 	if request.method == 'GET':
 		form = FlightSearchForm()
 	else:
@@ -41,7 +39,7 @@ def SearchEngine(request):
 			
 			## Generating the Request URL with User Choices
 			url = ("https://api.skypicker.com/flights?flyFrom=" + Origin + "&to=" + Destination + \
-			"&dateFrom=" + Departure + "&dateTo=" + Departure + '&limit=20')
+			"&dateFrom=" + Departure + "&dateTo=" + Departure + '&limit=20' + '&sort=quality')
 			
 			## Receiving the Response from API
 			response = urllib.request.urlopen(url)
@@ -58,8 +56,6 @@ def SearchEngine(request):
 					del data["data"][R]
 			
 			## Open Airlines Dictionary
-			##with open('Airlines.txt','r') as inf:
-				##dict_from_file = eval(inf.read())
 			def DepartureTime(Options, Route):
 				return(datetime.utcfromtimestamp(data["data"][Options]["route"][Route]["dTime"]).strftime('%H:%M'))
     
@@ -94,42 +90,44 @@ def SearchEngine(request):
 				Trip.append(ArrivalAirport(Options,len(data["data"][Options]["route"])-1))
 				return(str(Trip))	
 							
+			def MaxMinPrice():
+				Prices = []
+				for R in range(len(data["data"])):
+					Prices.append(FlightMatrix[R]['TPrice']['EUR'])
+				MaxPrice = max(Prices)
+				MinPrice = min(Prices)
+				return(MaxPrice, MinPrice)
+							
 			FlightMatrix = []
-	
 			for Options in range(len(data["data"])):
 				FlightDict = {}
+				Legs = []
 				FlightDict['Option']=Options+1
 				FlightDict['NFlight']=NumberOfFlights(Options)
 				for Route in range(len(data["data"][Options]["route"])):
 					#Airline
-					FlightDict['DTime']=DepartureTime(Options,Route)
-					FlightDict['DAirport']=DepartureAirport(Options, Route)
-					FlightDict['ATime']=ArrivalTime(Options,Route)
-					FlightDict['AAirport']=ArrivalAirport(Options,Route)
-					FlightDict['DDate']=DepartureDate(Options,Route)
-					FlightDict['RMap']=RouteMap(Options)
+					Legs.append({'DTime' : DepartureTime(Options,Route),
+                     'DAirport' : DepartureAirport(Options, Route),
+                     'ATime' : ArrivalTime(Options,Route),
+                     'AAirport' : ArrivalAirport(Options,Route),
+                     'DDate': DepartureDate(Options,Route)
+                     })
+				FlightDict['RMap']=RouteMap(Options)
+				FlightDict['Leg'] = Legs
 				FlightDict['TPrice']=TotalPrice(Options)
 				FlightDict['TFlightTime']=TotalFlightTime(Options)
 				FlightMatrix.append(FlightDict)
+			
+			MaxPrice, MinPrice = MaxMinPrice()
 			
 			# passing the variable to the viewitems
 			return render(request, 'Flights.html', {
 				'Origin' : Origin,
 				'Destination' : Destination,
 				'Departure' : Departure,
-				'FlightMatrix' : FlightMatrix
-				
-				#'Option' : Option,
-				#'NumberOfFlights': NFlights,
-				#'Airline': Airline,
-				#'DepartureTime': DTime,
-				#'DepartureAirport': DAirport,
-				#'ArrivalTime' : ATime,
-				#'ArrivalAirport': AAirport,
-				#'DepartureDate': DDate,
-				#'RouteMap': RMap,
-				#'TotalPrice': TPrice,
-				#'TotalFlightTime' : TFlightTime,
+				'FlightMatrix' : FlightMatrix,
+				'MaxPrice' : MaxPrice,
+				'MinPrice' : MinPrice,
 				})
 	return render(request, "Flights.html", {'form': form})
 
