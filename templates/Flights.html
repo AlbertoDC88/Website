@@ -57,53 +57,42 @@
 <form action=" " method="POST">
 	{% csrf_token %}
     <label for="Origin">From: </label>
-    <input id="Origin" type="text" name="Origin" >
+    <input id="Origin" type="text" name="Origin" value={{ Origin }}>
     <label for="Destination">To: </label>
-    <input id="Destination" type="text" name="Destination" >
+    <input id="Destination" type="text" name="Destination" value={{ Destination }}>
 	<label for="Departure">Departure: </label>
-    <input id="Departure" type="text" name="Departure" >
+    <input id="Departure" type="text" name="Departure" value={{ Departure }}>
 	<p></p>
     <input type="submit" name="Search" value="Search">
 	<p></p>	
 </form>
 
 {% if FlightMatrix %}
+
 <form action=" " method="POST">
 	{% csrf_token %}
-	<div class="""slidecontainer">
-	<input type="range" min={{MinPrice}} max="100" value="{{MinPrice}}" class="slider2" id="MinRange">
-	<p>Min Price: <span id="Min_P" name="Min_P"></span></p>
-	<input type="range" min="1" max={{MaxPrice}} value={{MaxPrice}} class="slider" id="MaxRange">
-	<p>Max Price: <span id="Max_P" name="Max_P"></span></p>
-	</div>
+	<p> Price Range : {{ MinPrice }} - {{ MaxPrice }}</p>
+    <label for="Min_P">Min: </label>
+    <input id="Min_P" type="int" name="Min_P" value={{ MinRange }}>
+    <label for="Max_P">Max: </label>
+    <input id="Max_P" type="int" name="Max_P" value={{ MaxRange }}>
+	<p></p>
+	<p> Flight Time Range : {{ MinTTime }} - {{ MaxTTime }} </p>
+    <label for="Min_T">Min: </label>
+    <input id="Min_T" type="int" name="Min_T" value={{ MinTime }}>
+    <label for="Max_T">Max: </label>
+    <input id="Max_T" type="int" name="Max_T" value={{ MaxTime }}>
+	<p></p>
     <input type="submit" name="Filter" value="Filter">
 	<p></p>	
 </form>
 
-<script>
-var slider = document.getElementById("MaxRange");
-var slider2 = document.getElementById("MinRange");
-var output = document.getElementById("Max_P");
-var output2 = document.getElementById("Min_P");
-output.innerHTML = slider.value;
-output2.innerHTML = slider2.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
-}
-</script>
-
 {% endif %}
-
-<p>Search Results for flights from {{ Origin }} to {{ Destination }} the {{ Departure }} at a Total Price of {{ TotalPrice }}</p>
-<p></p>
 
 {% for flights in FlightMatrix %}
 	<li>
+		<p>Search Results for flights from {{ Origin }} to {{ Destination }} the {{ Departure }}</p>
+		<p></p>	
 		<td> Option {{ flights.Option }} </td>
 		<ul>
 			<li> Number of Flights: {{ flights.NFlight }} 
