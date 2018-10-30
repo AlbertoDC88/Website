@@ -1,18 +1,55 @@
 <!-- templates/base.html -->
-<header>
-  <a href="{% url 'home' %}">Home</a> | <a href="{% url 'about' %}">About</a> | <a href="{% url 'TravelSearch' %}">Travel Search</a> | <a href="{% url 'login' %}">Login</a>
-</header>
-
-
+{% load staticfiles %}
+{% load static %}
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
-</head>
-<body>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/AboutUs_style.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+			<header id="header">
+				<h1 id="logo"><a href="{% url 'home' %}">ELYS</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="{% url 'about' %}">About Us</a></li>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'myELYS' %}"> My ELYS </a>
+							<ul>
+								<li><a href="{% url 'Flights' %}">Flight Search</a></li>
+								<li><a href="{% url 'Hotels' %}">Hotel Search</a></li>
+							</ul>
+						</li>
+						<li><a href="{% url 'logout' %}" class="button primary">Sign Out</a></li>
+						{% else %}
+						<li><a href="{% url 'login' %}" class="button primary">Sign In</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</header>
+			
+			<main>
+				{% block content %}
+				{% endblock %}
+			</main>
+				
+		</div>	
+
+			<!-- Scripts -->
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.scrolly.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.scrollex.min.js" %}"></script>
+			<script src="{% static "assets/js/browser.min.js" %}"></script>
+			<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<script src="{% static "assets/js/main.js" %}"></script>
+			
+	</body>
+	
 </html>
+

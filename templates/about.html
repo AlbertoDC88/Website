@@ -1,8 +1,80 @@
 <!-- templates/about.html -->
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+{% load static %}
+<html>
 {% block title %}About{% endblock %}
-
 {% block content %}
-<h1>About page</h1>
+
+<body>	
+	<section class="strips">
+	<article class="strips__strip">
+		<div class="strip__content">
+		<h1 class="strip__title" data-name="Lorem">Awesome</h1>
+		<div class="strip__inner-text">
+			<h2>Ettrics</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+		</div>
+	
+		</div>
+	</article>
+	<article class="strips__strip">
+		<div class="strip__content">
+		<h1 class="strip__title" data-name="Ipsum">Words</h1>
+		<div class="strip__inner-text">
+			<h2>Ettrics</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+		</div>
+		</div>
+	</article>
+	<article class="strips__strip">
+		<div class="strip__content">
+		<h1 class="strip__title" data-name="Dolor">Go</h1>
+		<div class="strip__inner-text">
+			<h2>Ettrics</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+		</div>
+		</div>
+	</article>
+	<article class="strips__strip">
+		<div class="strip__content">
+		<h1 class="strip__title" data-name="Sit">Inside</h1>
+		<div class="strip__inner-text">
+			<h2>Ettrics</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+		</div>
+		</div>
+	</article>
+	<article class="strips__strip">
+		<div class="strip__content">
+		<h1 class="strip__title" data-name="Amet">Here</h1>
+		<div class="strip__inner-text">
+			<h2>Ettrics</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+		</div>
+		</div>
+	</article>
+	<i class="fa fa-close strip__close"></i>
+	</section>
+	
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="{% static "assets/js/expand_aboutus.js" %}"></script>
+	
+</body>	
+	
+	
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

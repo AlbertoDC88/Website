@@ -1,0 +1,560 @@
+
+a { 
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+
+/* text align right */
+
+.txt-lt {
+    text-align: left;
+}
+
+
+/* text align left */
+
+.txt-center {
+    text-align: center;
+}
+
+
+/* text align center */
+
+.float-rt {
+    float: right;
+}
+
+
+/* float right */
+
+.float-lt {
+    float: left;
+}
+
+
+/* float left */
+
+.clear {
+    clear: both;
+}
+
+
+/* clear float */
+
+.pos-relative {
+    position: relative;
+}
+
+
+/* Position Relative */
+
+.pos-absolute {
+    position: absolute;
+}
+
+
+/* Position Absolute */
+
+.vertical-base {
+    vertical-align: baseline;
+}
+
+
+/* vertical align baseline */
+
+.vertical-top {
+    vertical-align: top;
+}
+
+
+/* vertical align top */
+
+nav.vertical ul li {
+    display: block;
+}
+
+
+/* vertical menu */
+
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+body {
+    background: url(../images/background.jpg)no-repeat center top;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    /*background-attachment: fixed;*/
+}
+
+.booking-form-ELYSlayouts {
+    box-sizing: border-box;
+    padding: 1.5em 2em;
+    background: rgba(0, 0, 0, 0.6);
+    width: 65%;
+    margin: 0 auto;
+	border-radius: 25px;
+}
+
+.flight-form-ELYSlayouts {
+    box-sizing: border-box;
+    padding: 1.5em 2em;
+    background: rgba(0, 0, 0, 0.6);
+    width: 90%;
+    margin: 0 auto;
+	border-radius: 25px;
+}
+
+h22 {
+    font-size: 60px;
+    font-weight: 600;
+    color: #00008B;
+    text-shadow: 1px 1px 7px #6b6b6b;
+    letter-spacing: 5px;
+    margin: 1.3em 0 .7em;
+}
+
+h21.sub-heading-agileits{
+    display: inline-block;
+    text-align: left;
+    font-size: 24px;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: .4em;
+    padding: 0px 25px 10px 0px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #0091cd;
+    font-family: 'Raleway', sans-serif;
+}
+
+.radio-section {
+    text-align: right;
+    margin: 0.5em 1.4em 1.4em; /*-- margin to the right and top of Select Your Fare --*/
+}
+
+.radio-section h6 {
+    display: inline;
+    margin-top: 10px;
+    color: #0091cd;
+    font-size: 19px;
+    text-transform: capitalize;
+    margin-bottom: .5em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.radio-section ul {
+    display: inline;
+}
+
+.radio-buttons-ELYS-agileits li input[type="radio"] {
+    cursor: pointer;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.radio-buttons-ELYS-agileits li label {
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/*-- form --*/
+
+.booking-form-ELYSlayouts input[type="text"],
+.booking-form-ELYSlayouts input[type="date"],
+.booking-form-ELYSlayouts textarea,
+.flight-form-ELYSlayouts textarea,
+select.form-control,
+input#datepicker {
+    width: 22.3%;  /*-- size of the line --*/
+	display: inline-block;
+    font-weight: 300;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    padding: 5px 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+    box-sizing: content-box;
+    font-family: 'Roboto', sans-serif;
+	padding-bottom: 0em
+}
+
+::-webkit-datetime-edit { padding-bottom: 0.5em}
+::-webkit-datetime-edit-text {      
+	font-weight: 300;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1.2px; 
+	padding: 0 0.3em;
+	}
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { opacity: 1; }
+
+.booking-form-ELYSlayouts textarea {
+    resize: none;
+    height: 80px;
+}
+
+.flight-form-ELYSlayouts textarea {
+    resize: none;
+    height: 80px;
+}
+
+.field-agileinfo-spc {
+    margin-bottom: 1em;
+}
+
+.form-ELYS-agile-text {
+    width: 100%;
+}
+
+select.form-control option {
+    background: #000;
+}
+
+
+.booking-form-ELYSlayouts input[type="submit"] {
+    text-transform: capitalize;
+    background: #0091cd;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 1em;
+    margin-top: 1em;
+	margin: 0.5em 4em;
+    float: right;
+    outline: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.booking-form-ELYSlayouts input[type="submit"] {
+    margin-right: 1.5em;
+    background: #d2741c;
+	border-radius: 15px;
+}
+
+.booking-form-ELYSlayouts input[type="submit"]:hover {
+    background: #0091cd;
+    color: #fff;
+}
+
+
+/*-- checkbox --*/
+
+.booking-form-ELYSlayouts label {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.83);
+    letter-spacing: 2px;
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 4px;
+    display: inline-block;
+    text-transform: capitalize;
+}
+
+ul.radio-buttons-ELYS-agileits li {
+    display: inline-block;
+    margin: 0em 0.5em;
+	vertical-align: 0.25em
+}
+
+/*-- //checkbox --*/ 
+/*--// form --*/ 
+
+
+/*--responsive--*/
+
+@media(max-width:1440px) {
+    .booking-form-ELYSlayouts {
+        width: 73%;
+    }
+}
+
+@media(max-width:1366px) {
+    .booking-form-ELYSlayouts {
+        width: 75%;
+    }
+}
+
+@media(max-width:1280px) {
+    .booking-form-ELYSlayouts {
+        width: 80%;
+    }
+}
+
+@media(max-width:1024px) {
+    h21.sub-heading-agileits {
+        font-size: 22px;
+        padding: 0px 20px 7px 0px;
+    }
+    .field-agileinfo-spc {
+        margin-bottom: 0.8em;
+    }
+    .booking-form-ELYSlayouts input[type="submit"]{
+        font-size: 1em;
+    }
+	.booking-form-ELYSlayouts input[type="text"],
+    .booking-form-ELYSlayouts input[type="date"],
+    .booking-form-ELYSlayouts textarea,
+    select.form-control,
+    input#datepicker {
+		display: block;
+		width: 90%;
+    }
+}
+
+@media(max-width:768px) {
+    h21.sub-heading-agileits{
+        font-size: 21px;
+        padding: 0px 15px 7px 0px;
+    }
+    .radio-section h6 {
+        font-size: 17px;
+        letter-spacing: 1.5px;
+    }
+    ul.radio-buttons-ELYS-agileits li {
+        margin: 0em 1em;
+    }
+}
+
+@media(max-width:667px) {
+    h21.sub-heading-agileits{
+        font-size: 19px;
+        letter-spacing: 1.5px;
+    }
+    .booking-form-ELYSlayouts {
+        width: 86%;
+        padding: 2em 2em;
+    }
+    .booking-form-ELYSlayouts input[type="text"],
+    .booking-form-ELYSlayouts input[type="date"],
+    .booking-form-ELYSlayouts textarea,
+    select.form-control,
+    input#datepicker {
+        padding: 8px 10px;
+		display: block;
+		width: 90%;
+    }
+    .field-agileinfo-spc {
+        margin-bottom: 0.9em;
+    }
+    h21.sub-heading-agileits {
+        margin-bottom: .6em;
+    }
+}
+
+@media(max-width:640px) {
+    .booking-form-ELYSlayouts input[type="submit"] {
+        margin-right: 0.7em;
+    }
+}
+
+@media(max-width:600px) {
+    .booking-form-ELYSlayouts {
+        width: 90%;
+    }
+    .booking-form-ELYSlayouts input[type="submit"]{
+        padding: 0.5em 2em;
+    }
+}
+
+@media(min-width:481px) {
+    .main-flex-ELYSls-sectns {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+    .form-ELYS-agile-text1,
+    .form-ELYS-agile-text2 {
+        flex-basis: 48.5%;
+        -webkit-flex-basis: 48.5%;
+    }
+}
+
+@media(min-width:737px) {
+    .form-ELYS-agile-text11,
+    .form-ELYS-agile-text22,
+    .form-ELYS-agile-text33 {
+        flex-basis: 32%;
+        -webkit-flex-basis: 32%;
+    }
+}
+
+@media(max-width:480px) {
+    ul.radio-buttons-ELYS-agileits li {
+        margin: 0em 0.5em;
+    }
+    .radio-section {
+        margin: 1.3em 0 .7em;
+    }
+
+    .booking-form-ELYSlayouts {
+        width: 85%;
+    }
+
+    ul.radio-buttons-ELYS-agileits li {
+        margin: 1em 0em 0em 0.2em;
+        display: block;
+    }
+    .booking-form-ELYSlayouts input[type="submit"]{
+        font-size: 1em;
+    }
+    .booking-form-ELYSlayouts textarea {
+        height: 60px;
+    }
+    .radio-section {
+        margin: 1em 0 .7em;
+    }
+}
+
+@media(max-width:414px) {
+    .booking-form-ELYSlayouts {
+        width: 90%;
+    }
+    .booking-form-ELYSlayouts {
+        width: 90%;
+        padding: 1.5em 1.7em;
+    }
+}
+
+@media(max-width:384px) {
+
+    .booking-form-ELYSlayouts input[type="submit"] {
+        float: none;
+    }
+    .booking-form-ELYSlayouts input[type="submit"] {
+		margin-right: 0.7em;
+    }
+}
+
+@media(max-width:320px) {
+    .booking-form-ELYSlayouts {
+        width: 93%;
+        padding: 1.3em 1.5em;
+    }
+
+    h21.sub-heading-agileits {
+        font-size: 18px;
+        letter-spacing: 1.4px;
+        padding: 0px 12px 5px 0px;
+    }
+}
+
+
+/*--//responsive--*/
+
+#dropdown-menu {
+  background: #EEE;
+  overflow: hidden;
+  border-radius: 6px;
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+  width: 200px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  transition: all 500ms;
+}
+#dropdown-menu.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+#dropdown-menu li:hover {
+  background: #3498DB;
+}
+#dropdown-menu li:hover a {
+  color: #FFF;
+}
+#dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: #000;
+  text-decoration: none;
+}
+
+@-webkit-keyframes flash {
+  0%, 30%, 100% {
+    color: #000;
+    background: #EEE;
+  }
+  15% {
+    color: #FFF;
+    background: #3498DB;
+  }
+}
+@-moz-keyframes flash {
+  0%, 30%, 100% {
+    color: #000;
+    background: #EEE;
+  }
+  15% {
+    color: #FFF;
+    background: #3498DB;
+  }
+}
+@keyframes flash {
+  0%, 30%, 100% {
+    color: #000;
+    background: #EEE;
+  }
+  15% {
+    color: #FFF;
+    background: #3498DB;
+  }
+}
+.flash {
+  -webkit-animation-name: flash;
+  -moz-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 600ms;
+  -moz-animation-duration: 600ms;
+  animation-duration: 600ms;
+}
+
+/*--//Box Section with plane --*/
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+

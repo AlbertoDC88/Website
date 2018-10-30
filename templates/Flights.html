@@ -3,124 +3,149 @@
 
 {% block title %}Flight Search{% endblock %}
 
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.slidecontainer {
-    width: 100%;
-}
-
-.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-.slider:hover {
-    opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-</style>
-</head>
-
+{% load staticfiles %}
+{% load static %}
+<html>
 {% block content %}
-<h1>Flight Search</h1>
-{% if user.is_authenticated %}
-	Hi {{ user.username }}!, where would you like to fly today?
-<p></p>	
 
-<p></p>	
+<head>
+	<link href="{% static 'FlightSearch/flightsearch_test.css' %}" rel='stylesheet' type='text/css' />
+	
 
-<form action=" " method="POST">
-	{% csrf_token %}
-    <label for="Origin">From: </label>
-    <input id="Origin" type="text" name="Origin" value={{ Origin }}>
-    <label for="Destination">To: </label>
-    <input id="Destination" type="text" name="Destination" value={{ Destination }}>
-	<label for="Departure">Departure: </label>
-    <input id="Departure" type="text" name="Departure" value={{ Departure }}>
-	<p></p>
-    <input type="submit" name="Search" value="Search">
+</head>
+<body><br>
+	<!--<center><h22>Flight Search</h22></center><br>-->
 	<p></p>	
-</form>
-
-{% if FlightMatrix %}
-
-<form action=" " method="POST">
-	{% csrf_token %}
-	<p> Price Range : {{ MinPrice }} - {{ MaxPrice }}</p>
-    <label for="Min_P">Min: </label>
-    <input id="Min_P" type="int" name="Min_P" value={{ MinRange }}>
-    <label for="Max_P">Max: </label>
-    <input id="Max_P" type="int" name="Max_P" value={{ MaxRange }}>
-	<p></p>
-	<p> Flight Time Range : {{ MinTTime }} - {{ MaxTTime }} </p>
-    <label for="Min_T">Min: </label>
-    <input id="Min_T" type="int" name="Min_T" value={{ MinTime }}>
-    <label for="Max_T">Max: </label>
-    <input id="Max_T" type="int" name="Max_T" value={{ MaxTime }}>
-	<p></p>
-    <input type="submit" name="Filter" value="Filter">
+	{% if user.is_authenticated %}
+	<!-- 	Hi {{ user.username }}!, where would you like to fly today? -->
 	<p></p>	
-</form>
-
-{% endif %}
-
-{% for flights in FlightMatrix %}
-	<li>
-		<p>Search Results for flights from {{ Origin }} to {{ Destination }} the {{ Departure }}</p>
-		<p></p>	
-		<td> Option {{ flights.Option }} </td>
-		<ul>
-			<li> Number of Flights: {{ flights.NFlight }} 
-			<ul>
+	<div class="booking-form-ELYSlayouts" >
+		<div class='top-row' style='float:left; width:30%'>
+		<h21 class="sub-heading-agileits">Booking Details</h21>
+		</div>
+		<form action=" " method="POST">
+			<div class="radio-section">
+						<h6>Select your Fare:</h6>
+						<ul class="radio-buttons-ELYS-agileits">
+							<li>
+								<input type="radio" id="a-option" name="selector1">
+								<label for="a-option">One Way</label>
+								<div class="check"></div>
+							</li>
+							<li>
+								<input type="radio" id="b-option" name="selector1">
+								<label for="b-option">Round-Trip</label>
+								<div class="check">
+									<div class="inside"></div>
+								</div>
+							</li>
+						</ul>
+			</div>
 			<p></p>
-			{% for R in flights.Leg %}
-				<li> {{ R.DTime }} - {{ R.ATime }} </li>
-				<li> {{ R.DAirport }} - {{ R.AAirport }} </li>
-				<li> {{ R.DDate }} </li>
-				<p></p>
-			{% endfor %}
-			</ul>
-			</li>
-			<li> {{ flights.RMap }} </li>
-			<li> Total Flight Time: {{ flights.TFlightTime }} </li>
+			<div class="book" >
+			{% csrf_token %}
+			<input id="Origin" type="text" name="Origin" placeholder="From" value={{ Origin }}>
+			<input id="Destination"  type="text" name="Destination" placeholder="To" value={{ Destination }}>
+			<input id="Departure" type="date" name="Departure" placeholder="Departure Date" value={{ Departure }}>
+			<input id="Return" type="date" name="Return" placeholder="Return Date" value={{ Return }}>
 			<p></p>
-			<li> {{ flights.TPrice }} </li>
-		</ul>
-	</li>
-{% endfor %}
+			<input type="submit" name="Search" value="Search">
+			<p></p>	
+			</div><br>
+		</form>
+		
+		
+		{% if FlightMatrix %}
+		
+		<form action=" " method="POST">
+			{% csrf_token %}
+			<p> Price Range : {{ MinPrice }} - {{ MaxPrice }}</p>
+			<label for="Min_P">Min: </label>
+			<input id="Min_P" type="int" name="Min_P" value={{ MinRange }}>
+			<label for="Max_P">Max: </label>
+			<input id="Max_P" type="int" name="Max_P" value={{ MaxRange }}>
+			<p></p>
+			<p> Flight Time Range : {{ MinTTime }} - {{ MaxTTime }} </p>
+			<label for="Min_T">Min: </label>
+			<input id="Min_T" type="int" name="Min_T" value={{ MinTime }}>
+			<label for="Max_T">Max: </label>
+			<input id="Max_T" type="int" name="Max_T" value={{ MaxTime }}>
+			<p></p>
+			<input type="submit" name="Filter" value="Filter">
+			<p></p>	<br>
+		</form>
+		
+		{% endif %}
+		
+		{% for flights in FlightMatrix %}
+		<button class="flight-form-ELYSlayouts"> 
+			<p align="left">{{ flights.Legs.0.OutboundR.0.DDate }}</p>
+			<div class = "wrapper">
+				<div class="box a">{{ Origin }} </div>
+				<div class="box b">Total Flight Time: {{flights.FlightTimes.OutboundT}} </div>
+				<div class="box c">{{ Destination }}</div>
+				<div class="box d">{{flights.Legs.0.OutboundR.0.DTime}} </div>
+				<div class="box e"> </div>
+				<div class="box f">{{flights.ArrivalTime_Outbound}}</div>
+			</div>
+			<p align="left">{{ flights.Legs.0.InboundR.0.DDate }}</p>
+			<div class = "wrapperR">
+				<div class="box a">{{ Destination }} </div>
+				<div class="box b">Total Flight Time: {{flights.FlightTimes.InboundT}} </div>
+				<div class="box c">{{ Origin }}</div>
+				<div class="box d">{{flights.Legs.0.InboundR.0.DTime}} </div>
+				<div class="box e"> </div>
+				<div class="box f">{{flights.ArrivalTime_Inbound}}</div>
+			</div>
+			<p>{{ flights.TPrice }}</p>	
+		</button>
+		<div class="content-form-ELYSlayouts">
+					{% for R in flights.Legs %}
+						{% for T in R.OutboundR %}
+						{{ T.DTime }} - {{ T.ATime }} 
+						{{ T.DAirport }} - {{ T.AAirport }} 
+						<p></p>
+						{% endfor %}
+						{% for T in R.InboundR %}
+						{{ T.DTime }} - {{ T.ATime }} 
+						{{ T.DAirport }} - {{ T.AAirport }} 
+						<p></p>
+						{% endfor %}
+					{% endfor %}
+					<p></p>
+		</div><br>
+		<br>
+		{% endfor %}
+		
+		
+		{% else %}
+			<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit">Login</button>
+			</form>
+		{% endif %}	
+		
+		
+		<script>
+		var coll = document.getElementsByClassName("flight-form-ELYSlayouts");
+		var i;
+		
+		for (i = 0; i < coll.length; i++) {
+		coll[i].addEventListener("click", function() {
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+			content.style.display = "none";
+			} else {
+			content.style.display = "block";
+			}
+		});
+		}
+		</script>
+		
+		{{FlightMatrix}}
+		
+		{% endblock %}
 
-<p></p>	
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-	<form method="post">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Login</button>
-	</form>
-{% endif %}
-{% endblock %}
+</body>
+</html>
