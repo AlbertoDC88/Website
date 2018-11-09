@@ -1,5 +1,6 @@
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+@import url("https://fonts.googleapis.com/css?family=Playball");
 
 /*
 	Landed by HTML5 UP
@@ -3363,6 +3364,7 @@ input, select, textarea {
 			position: absolute;
 			font-weight: 300;
 			top: 0;
+			font-family: 'Playball', cursive;
 		}
 
 		#header nav {

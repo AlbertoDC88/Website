@@ -36,12 +36,12 @@
 .ui-icon,
 .ui-datepicker-month,
 .ui-datepicker-year {
-  color: #fff;
+  color: #ffe800;
 }
 
 a.ui-state-default,
 .ui-datepicker th {
-  color: #fff !important;
+  color: #ffe800 !important;
   border: none !important;
   text-align: center !important;
   background-color: #484848;
@@ -69,11 +69,7 @@ a.ui-state-default,
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-  color: #484848 !important;
-  background-color: #0091cd;
-  padding: 15px;
-  border-top-left-radius: 1.5em;
-  border-bottom-right-radius: 1.5em;
+  color: #f5f5f5 !important;
 }
 
 .ui-state-highlight,
@@ -84,4 +80,9 @@ a.ui-state-default,
   padding: 15px;
   border-top-left-radius: 1.5em;
   border-bottom-right-radius: 1.5em;
+}
+
+.ui-state-selected {
+	background-color: #00FFFF;
+	color: #484848 !important;
 }

@@ -231,8 +231,6 @@ def SearchEngine(request):
 			else:
 				Return =  ReturnD.strftime("%d/%m/%Y")
 				
-			
-			
 			FlightMatrix, MaxPrice, MinPrice, MaxTTime, MinTTime = GenerateFlightMatrix(Origin, Destination, Departure, Return)
 			
 			request.session['FlightMatrix'] = FlightMatrix

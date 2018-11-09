@@ -99,22 +99,100 @@ body {
     /*background-attachment: fixed;*/
 }
 
+.Bodywrapper {
+  display: grid;
+  grid-template-columns: 85% 15%;
+ /*--/ background: url(../images/Direct_Outbound.jpg)no-repeat center;--*/
+  background-size: 100% 100%;
+  padding: 0% ;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.filter-form-ELYSlayouts {
+    box-sizing: border-box;
+    padding: 1.5em 2em;
+    background: rgba(0, 0, 0, 0.6);
+    width: 95%;
+    margin: 0 auto;
+	border-radius: 25px;
+	margin-left: 0;
+}
+
 .booking-form-ELYSlayouts {
     box-sizing: border-box;
     padding: 1.5em 2em;
     background: rgba(0, 0, 0, 0.6);
-    width: 65%;
+    width: 85%;
     margin: 0 auto;
 	border-radius: 25px;
+	margin-right: 0;
 }
 
 .flight-form-ELYSlayouts {
     box-sizing: border-box;
     padding: 1.5em 2em;
-    background: rgba(0, 0, 0, 0.6);
+    background-color : #000000;
     width: 90%;
     margin: 0 auto;
 	border-radius: 25px;
+	margin-left: 5%;
+	margin-right: 5%	
+}
+
+.content-form-ELYSlayouts {
+    box-sizing: border-box;
+    padding: 1.5em 2em;
+    background-color : #000000;
+    width: 90%;
+    margin: 0 auto;
+	border-radius: 25px;
+}
+
+/*--//Box Section with plane --*/
+
+.Globalwrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+ /*--/ background: url(../images/Direct_Outbound.jpg)no-repeat center;--*/
+  background-size: 100% 100%;
+  padding: 0% ;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 60% 10% 20% 10%;
+ /*--/ background: url(../images/Direct_Outbound.jpg)no-repeat center;--*/
+  background-size: 100% 100%;
+  padding: 0% ;
+  margin: 0%;
+   max-width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   vertical-align: middle;
+	text-align: center;
+}
+
+.box {
+  position: relative;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 100%;
+  margin: 0%;
+  max-width: 100%
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box p{
+	position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h22 {
@@ -540,21 +618,5 @@ ul.radio-buttons-ELYS-agileits li {
   animation-duration: 600ms;
 }
 
-/*--//Box Section with plane --*/
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
-}
-
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-}
 
